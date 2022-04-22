@@ -1,7 +1,7 @@
 resource myStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: 'bicepsto'
   location: 'useast'
-  SKU: {
+  sku: {
     name: 'Standard_LRS'
   }
   kind: 'StorageV2'
