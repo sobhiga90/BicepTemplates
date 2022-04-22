@@ -1,4 +1,3 @@
-param location string = resourceGroup().location
   
 resource myStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: 'bicepsto'
