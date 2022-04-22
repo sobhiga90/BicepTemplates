@@ -5,6 +5,7 @@ pool:
  
 variables:
   ServiceConnectionName: 'AzureSC'
+  ResourceGroupName: 'MyResourceGroup'
  
 jobs:
 - job:
@@ -16,5 +17,5 @@ jobs:
       scriptLocation: 'inlineScript'
       inlineScript: |
         az deployment group create \
-          --resource-group BicepRG \
+          --resource-group $(ResourceGroupName) \
           --template-file storage.bicep
