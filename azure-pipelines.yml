@@ -4,7 +4,7 @@ pool:
   vmImage: ubuntu-latest
  
 variables:
-  ServiceConnectionName: 'MyServiceConnection'
+  ServiceConnectionName: 'AzureSC'
   EnvironmentType: 'Test'
   ResourceGroupName: 'bicepsto'
  
