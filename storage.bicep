@@ -1,7 +1,8 @@
-  
+var location = 'westus'
+var name = 'bicepsto' 
 resource myStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-  name: 'bicepsto'
-  location: 'useast'
+  name: 'name'
+  location: 'location'
   sku: {
     name: 'Standard_LRS'
   }
