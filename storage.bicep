@@ -1,4 +1,4 @@
-var location = 'westus'
+param location string = 'westus'
 var name = 'bicepsto' 
 resource myStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: name
