@@ -5,7 +5,6 @@ pool:
  
 variables:
   ServiceConnectionName: 'AzureSC'
-  ResourceGroupName: 'bicepsto'
  
 jobs:
 - job:
