@@ -10,6 +10,6 @@ module stg './storage.bicep' = {
 module logAnalyticsWorkspace './log-analytics.bicep' = {
   name: 'logAnalyticsWorkspaceDeploy'
   params: {
-    appName: testapp
+    appName: 'testapp'
   }
 }
