@@ -1,14 +1,17 @@
-param location string = 'westus'
-param name string = 'bicepsto' 
+param location string
+param name string
+param skuName string
+param accessTier string
+
 resource myStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: name
   location: location
   sku: {
-    name: 'Standard_LRS'
+    name: skuName
   }
   kind: 'StorageV2'
   properties: {
-    accessTier: 'Hot'
+    accessTier: accessTier
         
   }
 }
