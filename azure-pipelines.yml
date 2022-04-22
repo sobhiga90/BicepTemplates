@@ -5,7 +5,6 @@ pool:
  
 variables:
   ServiceConnectionName: 'AzureSC'
-  EnvironmentType: 'Test'
   ResourceGroupName: 'bicepsto'
  
 jobs:
@@ -19,5 +18,4 @@ jobs:
       inlineScript: |
         az deployment group create \
           --resource-group $(ResourceGroupName) \
-          --template-file main.bicep \
-          --parameters environmentType=$(EnvironmentType)
+          --template-file main.bicep
