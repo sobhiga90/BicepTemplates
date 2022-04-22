@@ -2,7 +2,7 @@ module stg './storage.bicep' = {
     name: 'storageaccount'
     params: {
         location: eastus
-        name: testtest
+        name: testteststo
         skuName: Standard_LRS
         accessTier: hot
     }
