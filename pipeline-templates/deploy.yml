@@ -20,10 +20,10 @@ stages:
           scriptType: 'bash'
           scriptLocation: 'inlineScript'
           inlineScript: |
-          az deployment group create \
-          --resource-group $(ResourceGroupName) \
-          --template-file main.bicep \
-          --parameters main.parameters-prod.json
+            az deployment group create \
+              --resource-group $(ResourceGroupName) \
+              --template-file main.bicep \
+              --parameters main.parameters-prod.json
 
 
 - ${{ if eq(parameters.testa, 'dev') }}:
@@ -38,7 +38,7 @@ stages:
           scriptType: 'bash'
           scriptLocation: 'inlineScript'
           inlineScript: |
-          az deployment group create \
-          --resource-group $(ResourceGroupName) \
-          --template-file main.bicep \
-          --parameters main.parameters-dev.json
+            az deployment group create \
+              --resource-group $(ResourceGroupName) \
+              --template-file main.bicep \
+              --parameters main.parameters-dev.json
