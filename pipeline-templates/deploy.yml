@@ -1,0 +1,44 @@
+parameters:
+- name: testa
+  type: string
+- name: resourceGroupName
+  type: string
+- name: serviceConnectionName
+  type: string
+
+
+stages:
+- ${{ if eq(parameters.testa, 'Production') }}:
+  - stage: Production
+    displayName: Production (${{parameters.testa}} Environment)
+    jobs:
+    - job:
+      steps:
+      - task: AzureCLI@2
+        inputs:
+          azureSubscription: $(ServiceConnectionName)
+          scriptType: 'bash'
+          scriptLocation: 'inlineScript'
+          inlineScript: |
+          az deployment group create \
+          --resource-group $(ResourceGroupName) \
+          --template-file main.bicep
+          --parameters main.parameters-prod.json
+
+
+- ${{ if eq(parameters.testa, 'dev') }}:
+  - stage: dev
+    displayName: Dev (${{parameters.testa}} Environment)
+    jobs:
+    - job:
+      steps:
+      - task: AzureCLI@2
+        inputs:
+          azureSubscription: $(ServiceConnectionName)
+          scriptType: 'bash'
+          scriptLocation: 'inlineScript'
+          inlineScript: |
+          az deployment group create \
+          --resource-group $(ResourceGroupName) \
+          --template-file main.bicep
+          --parameters main.parameters-dev.json
