@@ -22,7 +22,7 @@ stages:
           inlineScript: |
           az deployment group create \
           --resource-group $(ResourceGroupName) \
-          --template-file main.bicep
+          --template-file main.bicep \
           --parameters main.parameters-prod.json
 
 
@@ -40,5 +40,5 @@ stages:
           inlineScript: |
           az deployment group create \
           --resource-group $(ResourceGroupName) \
-          --template-file main.bicep
+          --template-file main.bicep \
           --parameters main.parameters-dev.json
