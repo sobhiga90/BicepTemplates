@@ -9,12 +9,12 @@ stages:
 - template: pipeline-templates/deploy.yml
   parameters:
     testa: dev
-    resourceGroupName: mytestrg
-    serviceConnectionName: AzureSC
+    resourceGroupName: 'mytestrg'
+    serviceConnectionName: 'AzureSC'
 
 # Deploy to the production environment.
 - template: pipeline-templates/deploy.yml
   parameters:
     testa: Production
-    resourceGroupName: mytestrg
-    serviceConnectionName: AzureSC
+    resourceGroupName: 'mytestrg'
+    serviceConnectionName: 'AzureSC'
