@@ -1,11 +1,31 @@
-param webAppName string = uniqueString(resourceGroup().id) // Generate unique String for web app name
-param sku string = 'F1' // The SKU of App Service Plan
-param linuxFxVersion string = 'node|14-lts' // The runtime stack of web app
-param location string = resourceGroup().location // Location for all resources
-param repositoryUrl string = 'https://github.com/Azure-Samples/nodejs-docs-hello-world'
-param branch string = 'master'
+param location string
+param name string
+param skuName string
+param accessTier string
+param appName string
+param webAppName string // Generate unique String for web app name
+param sku string  // The SKU of App Service Plan
+param linuxFxVersion string // The runtime stack of web app
+param repositoryUrl string 
+param branch string 
 var appServicePlanName = toLower('AppServicePlan-${webAppName}')
 var webSiteName = toLower('wapp-${webAppName}')
+module stg './storage.bicep' = {
+  name: 'storageaccount'
+  params: {
+      location: location
+      name: name
+      skuName: skuName
+      accessTier: accessTier
+  }
+}
+module logAnalyticsWorkspace './log-analytics.bicep' = {
+name: 'logAnalyticsWorkspaceDeploy'
+params: {
+  appName: appName
+  location: location
+}
+}
 resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
   name: appServicePlanName
   location: location
@@ -35,3 +55,4 @@ resource srcControls 'Microsoft.Web/sites/sourcecontrols@2021-01-01' = {
     isManualIntegration: true
   }
 }
+

@@ -11,15 +11,30 @@
       "linuxFxVersion": {
         "value": "node|14-lts"
       },
-      "location": {
-        "value": "resourceGroup().location"
-      },
-      "repositoryUrl": {
+     "repositoryUrl": {
         "value": "https://github.com/Azure-Samples/nodejs-docs-hello-world"
       },
       "string": {
         "value": "master"
+      },
+      "location": {
+        "value": "eastus"
+      },
+      "name": {
+        "value": "devtestsds"
+      },
+      "skuName": {
+        "value": "Standard_LRS"
+      },
+      "accessTier": {
+        "value": "hot"
+      },
+      "appName": {
+        "value": "testapp-dev"
       }
     }
+
+    }
   }
+
 
